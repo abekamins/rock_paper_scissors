@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock, Paper, Scissors!</title>
+</head>
+<body>
+    <script>
+        let computerSelection = '';
+        let playerSelection = '';
+        // let playerPrompt = prompt('Rock, paper, scissors?');
+        // let playerSelection = playerPrompt.toLowerCase();
+        let results = '';
+        let playerScore = 0;
+        let computerScore = 0;
+        let rounds = 0;
+
+        function playerPlay() {
+            let playerPrompt = prompt('Rock, paper, scissors?');
+            playerSelection = playerPrompt.toLowerCase();
+        }
+
+        function computerPlay() {
+            computerChoice =  Math.floor(Math.random() * 3)
+            if (computerChoice === 0) {
+                computerSelection = 'rock'
+            } else if (computerChoice === 1) {
+                computerSelection = 'paper'
+            } else if (computerChoice === 2) {
+                computerSelection = 'scissors'
+            }
+        }
+
+
+        // }
+        
+                function gamePlay(playerSelection, computerSelection) {
+                    if (playerSelection == 'rock' && computerSelection == 'scissors') {
+                        results = 'You win!'
+                        playerScore++;
+                        return results
+                    } else if (playerSelection == 'rock' && computerSelection == 'paper') {
+                        results = 'You lose!'
+                        computerScore++;
+                        return results
+                    } else if (playerSelection == 'paper' && computerSelection == 'rock') {
+                        results = 'You win!'
+                        playerScore++;
+                        return results
+                    } else if (playerSelection == 'paper' && computerSelection == 'scissors') {
+                        results = 'You lose!'
+                        computerScore++;
+                        return results
+                    } else if (playerSelection == 'scissors' && computerSelection == 'paper') {
+                        results = 'You win!'
+                        playerScore++;
+                        return results
+                    } else if (playerSelection == 'scissors' && computerSelection == 'rock') {
+                        results = 'You lose!'
+                        computerScore++;
+                        return results
+                    } else if (playerSelection == computerSelection) {
+                        results = 'Tie game!'
+                        return results
+                    }
+                }
+    function bestOfFive() {
+        if (playerScore > computerScore) {
+            console.log('Congrats on the W')
+        } else if (computerScore > playerScore) {
+            console.log('Congrats on that massive L')
+        } else {
+            console.log('No one wins')
+        }
+    }
+    function game(rounds) {
+        for (let i=0; i<rounds; i++) {
+        playerPlay()
+        computerPlay()
+        gamePlay(playerSelection, computerSelection)
+        console.log(playerSelection)
+        console.log(computerSelection)
+        console.log(results)
+        console.log(playerScore)
+        console.log(computerScore)
+        if (playerScore >= 3) {
+            break;
+        }
+        if (computerScore >= 3) {
+            break;
+        }
+        }
+        bestOfFive()
+    }
+             
+    //     function game() {
+    //         gamePlay()
+    //         if (results === 'You win!') {
+    //             playerScore++;
+    //             console.log(playerScore)
+    //     }
+    // }
+        //computerPlay()
+        game(5)
+        // console.log(gamePlay(playerSelection, computerSelection))
+        // console.log(playerScore)
+        // console.log(computerScore)
+
+
+
+
+        
+
+    </script>
+</body>
+</html>
